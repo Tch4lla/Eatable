@@ -23,8 +23,8 @@ module.exports = {
   deleteComments: async (req, res) => {
     try {
       
-      await Comment.deleteOne({_id:req.params.commentid})
-      res.redirect("/post/" + req.params.postid);
+      await Comment.deleteOne({_id: req.params.commentid})
+      res.redirect("/post/"+req.params.postid);
     } catch (err){
       console.log(err)
     }

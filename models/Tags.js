@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 //This is the structure of the document that is displayed in the database
 const TagsSchema = new mongoose.Schema({
-  comment: {
+  tag: {
     type: String,
     required: true,
   },

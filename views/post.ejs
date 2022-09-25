@@ -46,7 +46,7 @@
           <%= comments[i].createdBy%> <%= comments[i].comment%> 
           <%if(comments[i].createdByID == user.id){ %>
             <form
-            action="/comment/deleteComments/<%= post._id %>/<%= comments[i]._id %>?_method=DELETE"
+            action="/comment/deleteComments/<%= post._id %>/<%= comments[i]._id %>"?_method=DELETE"
             method="POST"
           >
             <button type="submit" class="btn btn-outline-danger" >Delete</button>

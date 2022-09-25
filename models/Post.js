@@ -29,6 +29,11 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  tag: {
+    type: mongoose.Schema.Types.Mixed,
+    required: true,
+
+  }
 });
 
 module.exports = mongoose.model("Post", PostSchema);

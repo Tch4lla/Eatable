@@ -45,7 +45,7 @@ module.exports = {
         tag: req.body.tags
       });
       console.log("Post has been added!");
-      console.log(req.body);
+      console.log(req.body.tags.tags[0])
       res.redirect("/profile");
     } catch (err) {
       console.log(err);

@@ -52,15 +52,7 @@
 
 <script type="text/javascript">
   var input = document.querySelector('textarea[name=tags]'),
-      tagify = new Tagify(input, {
-          mode:'mix',
-          pattern: /@|#/,
-          enforceWhitelist: false,
-          whitelist: ['hallal','vegan','no pork','kosher','gluten-free'],
-          callbacks: {
-              add: console.log,  // callback when adding a tag
-              remove: console.log   // callback when removing a tag
-          }
-      });
+      tagify = new Tagify(input)
+      
 </script>
 <%- include('partials/footer') -%>

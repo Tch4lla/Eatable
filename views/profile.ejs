@@ -1,5 +1,5 @@
-<%- include('partials/profileHead') -%>
 
+<%- include('partials/profileHead') -%>
 
 <div class="container">
   <div class="row mt-5">
@@ -21,8 +21,19 @@
                 <textarea class="form-control" id="caption" name="caption"></textarea>
               </div>
               <div class="mb-3">
-                <label for="tags" class="form-label">Tags</label>
-                <textarea class="form-control" id="tags" name="tags" placeholder="Enter some tags"></textarea>
+                <label for="tags[]" class="form-label">Tags</label>
+                <select class="form-select" id="tags-input" name="tags[]" multiple data-allow-new="true">
+                  <!-- <option selected disabled hidden value="Enter some tags">Choose a tag...</option> -->
+                  <!-- <option value="1">Halal</option>
+                  <option value="2">Vegetarian</option>
+                  <option value="3">Vegan</option>
+                  <option value="4">Restaurant</option>
+                  <option value="5">GlutenFree</option>
+                  <option value="6">Kosher</option>
+                  <option value="7">PorkFree</option> -->
+                </select>
+                <!-- <label for="tags" class="form-label">Tags</label>
+                <textarea class="form-control" id="tags" name="tags" placeholder="Enter some tags"></textarea> -->
               </div>
               <div class="mb-3">
                 <label for="imgUpload" class="form-label">Image</label>
@@ -50,9 +61,11 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  var input = document.querySelector('textarea[name=tags]'),
-      tagify = new Tagify(input)
+<script type="module">
+  // var input = document.querySelector('textarea[name=tags]'),
+  //     tagify = new Tagify(input)
+  import Tags from './js/tags.js';
+  Tags.init("select[multiple]")
       
 </script>
 <%- include('partials/footer') -%>

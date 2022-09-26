@@ -30,7 +30,7 @@ const PostSchema = new mongoose.Schema({
     default: Date.now,
   },
   tag: {
-    type: {},
+    type: mongoose.Schema.Types.Mixed,
     required: true,
 
   }

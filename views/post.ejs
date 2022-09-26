@@ -56,15 +56,13 @@
       <% } %>
     </ul>
 
-    <div class="row justify-content-center mt-5">
-      <ul class="row list-unstyled">
-        <% for(var i=0; i<tags.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-           <%= tags[i]%>
-          </li>
-        <% } %>
-        </ul>
-    </div>
+    <ul>
+      <% for(var i=0; i<tags.length; i++) {%>
+        <li class="col-6 justify-content-between mt-5">
+          <%= tags[i]%>
+        </li>
+      <% } %>
+    </ul>
 
     <div class="col-6 mt-5">
       <a class="btn btn-primary" href="/profile">Return to Profile</a>

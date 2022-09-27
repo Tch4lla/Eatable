@@ -46,7 +46,7 @@
           <%= comments[i].createdBy%> <%= comments[i].comment%> 
           <%if(comments[i].createdByID == user.id){ %>
             <form
-            action="/comment/deleteComments/<%= post._id %>/<%= comments[i]._id %>"?_method=DELETE"
+            action="/comment/deleteComments/<%= post._id %>/<%= comments[i]._id %>?_method=DELETE"
             method="POST"
           >
             <button type="submit" class="btn btn-outline-danger" >Delete</button>
@@ -55,14 +55,20 @@
         </li>
       <% } %>
     </ul>
+    
+    <div>
+      <h2> Tags</h2>
+      <ul class="postTags" id="chips">
+        <% for(var i=0; i<tags.length; i++) {%>
+          <li>
+            <%= tags[i]%>
+          </li>
+        <% } %>
+      </ul>
+    </div>
 
-    <ul>
-      <% for(var i=0; i<tags.length; i++) {%>
-        <li class="col-6 justify-content-between mt-5">
-          <%= tags[i]%>
-        </li>
-      <% } %>
-    </ul>
+
+    
 
     <div class="col-6 mt-5">
       <a class="btn btn-primary" href="/profile">Return to Profile</a>
@@ -70,5 +76,7 @@
     </div>
   </div>
 </div>
+
+
 
 <%- include('partials/footer') -%>

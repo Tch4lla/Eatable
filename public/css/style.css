@@ -19,3 +19,13 @@ div ul {
     background-color: none;
     background-image: none;
   }
+
+#carouselExampleCaptions{
+    width: 58%;
+    padding-top: 25px;
+    margin: auto;
+}
+
+#hero, #features{
+    margin-top: 25px;
+}

@@ -1,3 +1,6 @@
+# Eatable
+Full-stack social media app where users can upload and tag photos of places or foods. Intended for users who have dietary restrictions and need/want to help finding places or things to eat which meet their dietary needs.
+
 # Install
 
 `npm install`

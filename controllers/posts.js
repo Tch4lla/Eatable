@@ -7,7 +7,7 @@ module.exports = {
   getProfile: async (req, res) => {
     try {
       const userProfile = await User.find({user: req.params.id})
-      const posts = await Post.find({ user: req.user.id });
+      const posts = await Post.find({ user: req.params.id });
       res.render("profile.ejs", { posts: posts, user: req.user, userProfile: userProfile });
     } catch (err) {
       console.log(err);
@@ -48,7 +48,7 @@ module.exports = {
         tag: req.body.tags
       });
       console.log("Post has been added!");
-      res.redirect("/profile");
+      res.redirect(`/profile/${req.params.id}`);
     } catch (err) {
       console.log(err);
     }
@@ -76,9 +76,9 @@ module.exports = {
       // Delete post from db
       await Post.remove({ _id: req.params.id });
       console.log("Deleted Post");
-      res.redirect("/profile");
+      res.redirect(`/profile/${req.user.id}`);
     } catch (err) {
-      res.redirect("/profile");
+      res.redirect(`/profile/${req.user.id}`);
     }
   },
 };

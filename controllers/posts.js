@@ -6,7 +6,7 @@ const User = require("../models/User")
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const userProfile = await User.find({user: req.params.id})
+      const userProfile = await User.findById(req.params.id)
       const posts = await Post.find({ user: req.params.id });
       res.render("profile.ejs", { posts: posts, user: req.user, userProfile: userProfile });
     } catch (err) {
@@ -16,7 +16,8 @@ module.exports = {
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: posts });
+      const userProfile = await User.findById(req.params.id)
+      res.render("feed.ejs", { posts: posts, userProfile: userProfile });
     } catch (err) {
       console.log(err);
     }

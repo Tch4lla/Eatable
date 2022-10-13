@@ -15,20 +15,21 @@ module.exports = {
   },
   getFeed: async (req, res) => {
     try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
+      const post = await Post.find().sort({ createdAt: "desc" }).lean();
       const userProfile = await User.findById(req.params.id)
-      res.render("feed.ejs", { posts: posts, userProfile: userProfile });
+      res.render("feed.ejs", { post: post, userProfile: userProfile });
     } catch (err) {
       console.log(err);
     }
   },
   getPost: async (req, res) => {
     try {
+      const userProfile = await User.findById(req.params.id)
       const post = await Post.findById(req.params.id);
       const comments = await Comment.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
       const tags = await Post.findById({ _id: req.params.id });
     
-      res.render("post.ejs", { post: post, user: req.user, comments: comments, tags: tags.tag});
+      res.render("post.ejs", { post: post, user: req.user, comments: comments, tags: tags.tag, userProfile: userProfile});
       
     } catch (err) {
       console.log(err);
